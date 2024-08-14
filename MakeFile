@@ -1,0 +1,10 @@
+-include .env
+
+
+build :; forge build
+
+deploy-on-avail:
+	forge script script/DeploySender.s.sol --rpc-url $(AVAIL_RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(ETHER_SCAN_API_KEY) --priority-gas-price 1
+
+deploy-on-sepolia:
+	forge script script/DeployMoodNftAndReceiver.s.sol --rpc-url $(SAPOLIA_RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(ETHER_SCAN_API_KEY) --priority-gas-price 1 --legacy

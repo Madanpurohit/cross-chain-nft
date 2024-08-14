@@ -1,0 +1,61 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+    <!-- SVG Background -->
+    <rect width="100%" height="100%" fill="#f0f0f0" />
+  
+    <!-- Header -->
+    <foreignObject x="50" y="20" width="700" height="80">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="text-align: center;">
+        <h1 style="color: #333;">My Design Portfolio</h1>
+      </div>
+    </foreignObject>
+  
+    <!-- Navigation -->
+    <foreignObject x="50" y="120" width="700" height="40">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="text-align: center;">
+        <nav>
+          <ul style="list-style: none; padding: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="#portfolio" style="color: #333; text-decoration: none;">Portfolio</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="#about" style="color: #333; text-decoration: none;">About</a></li>
+            <li style="display: inline;"><a href="#contact" style="color: #333; text-decoration: none;">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </foreignObject>
+  
+    <!-- Portfolio Section -->
+    <foreignObject x="50" y="180" width="700" height="300">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <h2>Portfolio</h2>
+        <div class="portfolio-item" style="margin-bottom: 30px;">
+            <img src="project1.jpg" alt="Project 1" style="max-width: 100%; height: auto; border-radius: 5px;">
+            <h3>Project 1</h3>
+            <p>Description of Project 1</p>
+        </div>
+        <div class="portfolio-item" style="margin-bottom: 30px;">
+            <img src="project2.jpg" alt="Project 2" style="max-width: 100%; height: auto; border-radius: 5px;">
+            <h3>Project 2</h3>
+            <p>Description of Project 2</p>
+        </div>
+        <!-- Add more portfolio items as needed -->
+      </div>
+    </foreignObject>
+  
+    <!-- About Section -->
+    <foreignObject x="50" y="500" width="700" height="80">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="background: #f0f0f0; padding: 20px;">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor nisl nec ultrices consequat.</p>
+      </div>
+    </foreignObject>
+  
+    <!-- Contact Section -->
+    <foreignObject x="50" y="590" width="700" height="80">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="padding: 20px;">
+        <h2>Contact Me</h2>
+        <p>Email: example@example.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+    </foreignObject>
+  
+  </svg>
+  
