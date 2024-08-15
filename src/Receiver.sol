@@ -25,8 +25,8 @@ contract Receiver is CCIPReceiver {
     ) internal override {
         s_lastReceivedMsgId = message.messageId;
         s_lastMsg = abi.decode(message.data, (string));
-        address addressOnMint = address(bytes20(bytes(s_lastMsg)));
-        s_moodNft.mintNft(addressOnMint);
+        address creator = stringToAddress(s_lastMsg);
+        s_moodNft.mintNft(creator);
         emit MessageReceived(
             message.messageId,
             message.sourceChainSelector, // fetch the source chain identifier (aka selector)
@@ -41,5 +41,32 @@ contract Receiver is CCIPReceiver {
         returns (bytes32 messageId, string memory text)
     {
         return (s_lastReceivedMsgId, s_lastMsg);
+    }
+    function externalCCIPReceive(Client.Any2EVMMessage memory message) external {
+        _ccipReceive(message); // for test only not for deployment
+    }
+
+    function stringToAddress(string memory str) internal pure returns (address) {
+        bytes memory strBytes = bytes(str);
+        require(strBytes.length == 42, "Invalid address length");
+        bytes memory addrBytes = new bytes(20);
+
+        for (uint i = 0; i < 20; i++) {
+            addrBytes[i] = bytes1(hexCharToByte(strBytes[2 + i * 2]) * 16 + hexCharToByte(strBytes[3 + i * 2]));
+        }
+
+        return address(uint160(bytes20(addrBytes)));
+    }
+
+    function hexCharToByte(bytes1 char) internal pure returns (uint8) {
+        uint8 byteValue = uint8(char);
+        if (byteValue >= uint8(bytes1('0')) && byteValue <= uint8(bytes1('9'))) {
+            return byteValue - uint8(bytes1('0'));
+        } else if (byteValue >= uint8(bytes1('a')) && byteValue <= uint8(bytes1('f'))) {
+            return 10 + byteValue - uint8(bytes1('a'));
+        } else if (byteValue >= uint8(bytes1('A')) && byteValue <= uint8(bytes1('F'))) {
+            return 10 + byteValue - uint8(bytes1('A'));
+        }
+        revert("Invalid hex character");
     }
 }

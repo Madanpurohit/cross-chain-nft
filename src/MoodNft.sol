@@ -38,11 +38,11 @@ contract MoodNft is ERC721 {
             s_counter_mood_mapping[token] = Mood.HAPPY;
         }
     }
-    function mintNft(address owner) external {
-        if(owner == address(0)){
+    function mintNft(address creator) external {
+        if(creator == address(0)){
             revert MoodNft__invalidAddress();
         }
-        _safeMint(owner, s_count);
+        _safeMint(creator, s_count);
         s_counter_mood_mapping[s_count] = Mood.HAPPY;
         s_count++;
     }
