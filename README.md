@@ -1,6 +1,7 @@
 #Mint cross chain NFT using chainlink CCIP
 Chainlink CCIP is a blockchain interoperability protocol that enables developers to build secure applications that can transfer tokens, messages (data), or both tokens and messages across chains. That too completely decentralised. You can read more here.
 Our project architecture will involve a sender contract on Avalanche Fuji, which will trigger a receiver on the Sepolia network to mint an NFT on Sepolia. The transaction will be initiated on Fuji, while the NFT minting process will occur on Sepolia.
+![screenshot](Screenshot.png)
 ##1.Sender Contract
 
 ``` Solidity
